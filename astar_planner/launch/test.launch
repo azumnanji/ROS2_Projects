@@ -1,0 +1,26 @@
+from launch import LaunchDescription
+from launch_ros.actions import Node
+import os
+from ament_index_python import get_package_share_directory
+import launch 
+
+from launch.actions import ExecuteProcess
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration
+
+
+def generate_launch_description():
+    return launch.LaunchDescription([
+      launch.actions.ExecuteProcess(
+      	cmd = ['ros2', 'bag', 'play',  '/home/nanji/ros2_ws/src/lab2/point5'],
+      	#output = 'screen'
+      ),
+        Node(
+            package='astar_planner',
+            executable='planner',
+            output = 'screen'),
+        Node(
+            package='astar_planner',
+            executable='client',
+            output = 'screen')
+    ])

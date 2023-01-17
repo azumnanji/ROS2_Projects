@@ -1,0 +1,10 @@
+# Define a goal of washing all dishes
+geometry_msgs/Pose start_position
+geometry_msgs/Pose goal_position
+---
+# Define the result that will be published after the action execution ends.
+geometry_msgs/Pose[] path
+---
+# Define a feedback message that will be published during action execution.
+# Define a goal of washing all dishes
+bool working
